@@ -1,5 +1,6 @@
 "use client";
-import { Zap, Shield, Download, Globe, Sparkles, Film } from "lucide-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBolt, faShield, faDownload, faGlobe, faStars, faFilm } from "@fortawesome/free-solid-svg-icons";
 import { useLang } from "@/lib/lang-context";
 import { translations as tr, t } from "@/lib/i18n";
 
@@ -8,7 +9,7 @@ export function DouyinFeatures() {
 
   const features = [
     {
-      icon: Zap,
+      icon: faBolt,
       title: t(tr.features.fast_t, lang),
       description: t(tr.features.fast_d, lang),
       color: "from-red-500 to-orange-500",
@@ -16,7 +17,7 @@ export function DouyinFeatures() {
       badge: "⚡",
     },
     {
-      icon: Shield,
+      icon: faShield,
       title: t(tr.features.safe_t, lang),
       description: t(tr.features.safe_d, lang),
       color: "from-red-600 to-red-400",
@@ -24,7 +25,7 @@ export function DouyinFeatures() {
       badge: "🛡️",
     },
     {
-      icon: Download,
+      icon: faDownload,
       title: t(tr.features.nowm_t, lang),
       description: t(tr.features.nowm_d_dy, lang),
       color: "from-red-500 to-pink-500",
@@ -32,7 +33,7 @@ export function DouyinFeatures() {
       badge: "✨",
     },
     {
-      icon: Globe,
+      icon: faGlobe,
       title: t(tr.features.china_t, lang),
       description: t(tr.features.china_d, lang),
       color: "from-red-700 to-red-500",
@@ -40,7 +41,7 @@ export function DouyinFeatures() {
       badge: "🇨🇳",
     },
     {
-      icon: Film,
+      icon: faFilm,
       title: "Photo Slideshow",
       description: "Download all photos from Douyin image posts — swipe & save each one.",
       color: "from-rose-500 to-red-500",
@@ -48,7 +49,7 @@ export function DouyinFeatures() {
       badge: "🖼️",
     },
     {
-      icon: Sparkles,
+      icon: faStars,
       title: t(tr.features.multi_t, lang),
       description: t(tr.features.multi_d, lang),
       color: "from-red-400 to-orange-400",
@@ -59,12 +60,10 @@ export function DouyinFeatures() {
 
   return (
     <section className="py-16 px-4 relative overflow-hidden">
-      {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-br from-red-50/50 via-transparent to-orange-50/30 dark:from-red-950/20 dark:to-transparent pointer-events-none" />
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-red-300 to-transparent dark:via-red-800" />
 
       <div className="container mx-auto relative">
-        {/* Section header */}
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 rounded-full bg-red-100 dark:bg-red-950/40 border border-red-200 dark:border-red-800 px-4 py-1.5 text-sm font-medium text-red-600 dark:text-red-400 mb-4">
             <span>🎬</span>
@@ -81,32 +80,27 @@ export function DouyinFeatures() {
           </p>
         </div>
 
-        {/* Feature grid */}
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {features.map((f, i) => {
-            const Icon = f.icon;
-            return (
-              <div
-                key={i}
-                className={`group relative rounded-2xl border border-red-100 dark:border-red-900 ${f.bg} p-5 transition-all hover:shadow-lg hover:-translate-y-1 hover:border-red-300 dark:hover:border-red-700 overflow-hidden`}
-              >
-                {/* Gradient accent top-right */}
-                <div className={`absolute -top-4 -right-4 w-20 h-20 rounded-full bg-gradient-to-br ${f.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
-                <div className="flex items-start gap-4">
-                  <div className={`flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br ${f.color} flex items-center justify-center shadow-sm`}>
-                    <Icon className="h-5 w-5 text-white" />
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="font-semibold text-foreground mb-1 flex items-center gap-2">
-                      {f.title}
-                      <span className="text-base leading-none">{f.badge}</span>
-                    </h3>
-                    <p className="text-sm text-muted-foreground leading-relaxed">{f.description}</p>
-                  </div>
+          {features.map((f, i) => (
+            <div
+              key={i}
+              className={`group relative rounded-2xl border border-red-100 dark:border-red-900 ${f.bg} p-5 transition-all hover:shadow-lg hover:-translate-y-1 hover:border-red-300 dark:hover:border-red-700 overflow-hidden`}
+            >
+              <div className={`absolute -top-4 -right-4 w-20 h-20 rounded-full bg-gradient-to-br ${f.color} opacity-10 group-hover:opacity-20 transition-opacity`} />
+              <div className="flex items-start gap-4">
+                <div className={`flex-shrink-0 w-11 h-11 rounded-xl bg-gradient-to-br ${f.color} flex items-center justify-center shadow-sm`}>
+                  <FontAwesomeIcon icon={f.icon} className="h-5 w-5 text-white" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="font-semibold text-foreground mb-1 flex items-center gap-2">
+                    {f.title}
+                    <span className="text-base leading-none">{f.badge}</span>
+                  </h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{f.description}</p>
                 </div>
               </div>
-            );
-          })}
+            </div>
+          ))}
         </div>
       </div>
     </section>
