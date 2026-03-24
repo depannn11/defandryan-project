@@ -113,9 +113,8 @@ export function DownloadForm() {
       </div>
 
       {/* ── Download tab ── */}
-      {activeTab === "download" && (
-        <>
-          {/* Input card */}
+      <>
+        {/* Input card */}
           <Card className="border-2 border-border shadow-lg">
             <CardContent className="p-4 md:p-6">
               <form onSubmit={handleSubmit} className="space-y-4">
@@ -253,7 +252,6 @@ export function DownloadForm() {
             </Card>
           )}
         </>
-      )}
     </div>
   );
 }
